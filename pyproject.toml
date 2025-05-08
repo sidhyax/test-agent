@@ -1,9 +1,0 @@
-[project]
-name = "test-agents"
-version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
-requires-python = ">=3.12"
-dependencies = [
-    "crawl4ai>=0.6.2",
-]

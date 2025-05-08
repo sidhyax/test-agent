@@ -1,0 +1,11 @@
+python-dotenv
+mcp-use
+groq
+langchain-groq
+python-dotenv
+langchain
+fastembed
+playwright
+uvicorn
+fastapi
+rich
