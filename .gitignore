@@ -8,3 +8,6 @@ wheels/
 
 # Virtual environments
 .venv
+mcp-adk/.env
+mcp-adk/mcp_agent/.env
+.env
