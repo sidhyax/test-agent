@@ -9,3 +9,4 @@ playwright
 uvicorn
 fastapi
 rich
+langchain_google_genai

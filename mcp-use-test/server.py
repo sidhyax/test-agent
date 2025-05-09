@@ -9,7 +9,7 @@ from rich.console import Console
 from rich.panel import Panel
 from rich.markdown import Markdown
 from rich.prompt import Prompt
-
+from langchain_google_genai import ChatGoogleGenerativeAI
 
 class MemoryChatApp:
     """
@@ -32,6 +32,9 @@ class MemoryChatApp:
             if not os.getenv("GROQ_API_KEY"):
                 self.console.print("[bold red]ERROR: GROQ_API_KEY NOT FOUND[/bold red]")
                 return False
+            if not os.getenv("GOOGLE_API_KEY"):
+                self.console.print("[bold red]ERROR: GOOGLE_API_KEY NOT FOUND[/bold red]")
+                return False
                 
             # Check for config file
             self.console.print(f"Using config file: {self.config_file}")
@@ -43,12 +46,14 @@ class MemoryChatApp:
             self.client = MCPClient.from_config_file(self.config_file)
             
             # Initialize LLM
-            llm = ChatGroq(
-                model="llama3-8b-8192", 
-                api_key=os.getenv("GROQ_API_KEY"),
-                temperature=0.7,
-                max_tokens=1024
-            )
+            # llm = ChatGroq(
+            #     model="llama3-8b-8192", 
+            #     api_key=os.getenv("GROQ_API_KEY"),
+            #     temperature=0.7,
+            #     max_tokens=1024
+            # )
+
+            llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash")
             
             # Initialize agent
             self.agent = MCPAgent(
